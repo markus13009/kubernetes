@@ -1,0 +1,24 @@
+---
+- name: Restart Kubernetes Pod
+  hosts: localhost
+  gather_facts: no
+  tasks:
+    - name: Include Kubernetes Facts Module
+      include_vars:
+        file: ~/path/to/kubeconfig.yml
+        name: kubeconfig
+
+    - name: Restart Pod
+      k8s:
+        kubeconfig: "{{ kubeconfig }}"
+        state: restarted
+        resource_definition: |
+          apiVersion: v1
+          kind: Pod
+          metadata:
+            name: your-pod-name  # Replace with your pod name
+      register: pod_restart_result
+
+    - name: Display Pod Restart Result
+      debug:
+        var: pod_restart_result
