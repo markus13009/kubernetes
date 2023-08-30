@@ -1,6 +1,6 @@
 ---
 - name: Get Kubernetes Pod and Node Status
-  hosts: localhost  # This can be your control machine
+  hosts: K8S-TEST-0  # This can be your control machine
   tasks:
     - name: Get Pod Status
       community.kubernetes.k8s_info:
