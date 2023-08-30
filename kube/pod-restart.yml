@@ -5,7 +5,7 @@
   tasks:
     - name: Include Kubernetes Facts Module
       include_vars:
-        file: ~/path/to/kubeconfig.yml
+        file: ~/.kube/poc
         name: kubeconfig
 
     - name: Restart Pod
