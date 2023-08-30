@@ -5,7 +5,7 @@
   tasks:
     - name: Include Kubernetes Facts Module
       include_vars:
-        file: ~/.kube/poc
+        file: ~/.kube/kubeconfig
         name: kubeconfig
 
     - name: Restart Pod
@@ -16,7 +16,7 @@
           apiVersion: v1
           kind: Pod
           metadata:
-            name: your-pod-name  # Replace with your pod name
+            name: nginx  # Replace with your pod name
       register: pod_restart_result
 
     - name: Display Pod Restart Result
