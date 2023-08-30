@@ -1,6 +1,6 @@
 ---
 - name: Restart Kubernetes Pod
-  hosts: localhost
+  hosts: K8S-TEST-0
   gather_facts: no
   tasks:
     - name: Include Kubernetes Facts Module
