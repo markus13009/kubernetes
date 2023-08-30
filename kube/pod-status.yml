@@ -1,0 +1,21 @@
+---
+- name: Get Kubernetes Pod and Node Status
+  hosts: localhost  # This can be your control machine
+  tasks:
+    - name: Get Pod Status
+      community.kubernetes.k8s_info:
+        api_resources: pod
+      register: pod_status_result
+
+    - name: Display Pod Status
+      debug:
+        var: pod_status_result
+
+    - name: Get Node Status
+      community.kubernetes.k8s_info:
+        api_resources: node
+      register: node_status_result
+
+    - name: Display Node Status
+      debug:
+        var: node_status_result
